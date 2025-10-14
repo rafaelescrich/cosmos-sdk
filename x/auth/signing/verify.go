@@ -11,7 +11,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/crypto/types/multisig"
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 	"github.com/ethereum/go-ethereum/crypto"
-	ethCrypto "github.com/ethereum/go-ethereum/crypto/secp256k1"
+	ethCrypto "github.com/rafaelescrich/go-secp256k1/ethcrypto"
 )
 
 // APISignModesToInternal converts a protobuf SignMode array to a signing.SignMode array.
