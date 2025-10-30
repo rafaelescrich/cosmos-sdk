@@ -11,7 +11,6 @@ import (
 	"github.com/cosmos/cosmos-sdk/crypto/types/multisig"
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 	"github.com/ethereum/go-ethereum/crypto"
-	ethCrypto "github.com/rafaelescrich/go-secp256k1/ethcrypto"
 )
 
 // APISignModesToInternal converts a protobuf SignMode array to a signing.SignMode array.
@@ -104,5 +103,5 @@ func VerifySignature(ctx context.Context, pubKey cryptotypes.PubKey, signerData 
 // RecoverPubKey builds a signature for given a signed msg.
 func RecoverPubKey(msg, sig []byte) ([]byte, error) {
 	data := crypto.Keccak256(msg)
-	return ethCrypto.RecoverPubkey(data, sig)
+	return crypto.Ecrecover(data, sig)
 }
